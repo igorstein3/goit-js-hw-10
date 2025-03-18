@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="./css/styles.css" />
+<form class="form">
+    <label>
+        Delay (ms)
+        <input type="number" name="delay" required />
+    </label>
+
+    <fieldset>
+        <legend>State</legend>
+        <label class="fieldset-label">
+            <input type="radio" name="state" value="fulfilled" required />
+            Fulfilled
+        </label>
+        <label class="fieldset-label">
+            <input type="radio" name="state" value="rejected" required />
+            Rejected
+        </label>
+    </fieldset>
+
+    <button type="submit">Create notification</button>
+</form>

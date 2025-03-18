@@ -1,0 +1,74 @@
+.form button {
+    position:static;
+    margin-top: 24px;
+    width: 360px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+form label {
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0.04em;
+        color: #2e2f42;
+}
+form label input {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    width: 360px;
+}
+form label input:focus-within {
+    width:360px;
+}
+fieldset {
+    display: flex;
+    column-gap: 48px;
+    width: 360px;
+        height: 78px;
+    justify-content: center;
+    padding-top: 22px;
+    padding-bottom: 8px;
+    margin: 0;
+    border: 1px solid #808080;
+    border-radius: 4px;
+}
+fieldset:hover,
+fieldset:focus {
+    border-color: #000;
+}
+.fieldset-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+fieldset label input {
+    width: 20px;
+    height: 20px;
+    margin-right: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+legend {
+    font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0.04em;
+        color: #2e2f42;
+}
+fieldset label input:focus-within {
+    width: 20px;
+    height: 20px;
+        margin-right: 14px;
+}
+fieldset label input:hover,
+fieldset label input:focus {
+    cursor: pointer;
+}
