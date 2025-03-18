@@ -27,21 +27,16 @@ function createPromise(value, delay, success) {
 
 refs.delayInput.addEventListener('input', (e) => {
     delay = Number(e.currentTarget.value);
-    console.log(delay);
 });
 
 refs.fulfilledRadio.addEventListener('click', (e) => {
     successValue = true;
     valueText = `✅ Fulfilled promise in ${delay} ms`;
-    console.log(successValue);
-    console.log(valueText);
 });
 
 refs.rejectedRadio.addEventListener('click', (e) => {
     successValue = false;
     valueText = `❌ Rejected promise in ${delay} ms`;
-    console.log(successValue);
-    console.log(valueText);
 });
 
 refs.submitBtn.addEventListener('click', (e) => {
