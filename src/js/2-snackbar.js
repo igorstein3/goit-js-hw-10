@@ -13,10 +13,10 @@ let successValue = undefined;
 let valueText = '';
 
 
-function createPromise(value, delay, success) { 
+function createPromise(value, delay, success) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            if (success) { 
+            if (success) {
                 resolve(value);
             } else {
                 reject(value);
@@ -33,15 +33,11 @@ refs.delayInput.addEventListener('input', (e) => {
 refs.fulfilledRadio.addEventListener('click', (e) => {
     successValue = true;
     valueText = `✅ Fulfilled promise in ${delay} ms`;
-    console.log(successValue);
-    console.log(valueText);
 });
 
 refs.rejectedRadio.addEventListener('click', (e) => {
     successValue = false;
     valueText = `❌ Rejected promise in ${delay} ms`;
-    console.log(successValue);
-    console.log(valueText);
 });
 
 refs.submitBtn.addEventListener('click', (e) => {
@@ -56,13 +52,13 @@ refs.submitBtn.addEventListener('click', (e) => {
         });
     })
         .catch(err => {
-        iziToast.error({
-            message: valueText,
-            progressBar: false,
-            close: true,
-            position: 'topRight',
-        });   
-    });
+            iziToast.error({
+                message: valueText,
+                progressBar: false,
+                close: true,
+                position: 'topRight',
+            });
+        });
 });
 
 
