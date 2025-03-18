@@ -27,7 +27,6 @@ function createPromise(value, delay, success) {
 
 refs.delayInput.addEventListener('input', (e) => {
     delay = Number(e.currentTarget.value);
-    console.log(delay);
 });
 
 refs.fulfilledRadio.addEventListener('click', (e) => {
@@ -47,7 +46,6 @@ refs.submitBtn.addEventListener('click', (e) => {
         iziToast.success({
             message: valueText,
             progressBar: false,
-            close: true,
             position: 'topRight',
         });
     })
@@ -55,7 +53,6 @@ refs.submitBtn.addEventListener('click', (e) => {
             iziToast.error({
                 message: valueText,
                 progressBar: false,
-                close: true,
                 position: 'topRight',
             });
         });
