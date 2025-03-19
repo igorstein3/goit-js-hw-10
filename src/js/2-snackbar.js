@@ -3,15 +3,9 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 const refs = {
+    form: document.querySelector('.form'),
     submitBtn: document.querySelector('[data-begin]'),
-    fulfilledRadio: document.querySelector('input[value="fulfilled"]'),
-    rejectedRadio: document.querySelector('input[value="rejected"]'),
-    delayInput: document.querySelector('[required]'),
 };
-let delay = null;
-let successValue = undefined;
-let valueText = '';
-
 
 function createPromise(value, delay, success) {
     return new Promise((resolve, reject) => {
@@ -25,33 +19,31 @@ function createPromise(value, delay, success) {
     });
 };
 
-refs.delayInput.addEventListener('input', (e) => {
-    delay = Number(e.currentTarget.value);
-});
-
-refs.fulfilledRadio.addEventListener('click', (e) => {
-    successValue = true;
-    valueText = `✅ Fulfilled promise in ${delay} ms`;
-});
-
-refs.rejectedRadio.addEventListener('click', (e) => {
-    successValue = false;
-    valueText = `❌ Rejected promise in ${delay} ms`;
-});
-
-refs.submitBtn.addEventListener('click', (e) => {
+refs.form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const promise = createPromise(valueText, delay, successValue);
+    let success = undefined;
+  const radios = refs.form.elements.state;
+    for (let radio of radios) {      
+        if (radio.checked) {
+            if (radio.value === 'fulfilled') {
+                success = true;
+            } else if (radio.value === 'rejected') {
+                success = false;
+            };
+        }
+    };   
+    const delay = Number(e.currentTarget.elements.delay.value);
+    const promise = createPromise(delay, delay, success);
     promise.then(value => {
         iziToast.success({
-            message: valueText,
+            message: `✅ Fulfilled promise in ${value} ms`,
             progressBar: false,
             position: 'topRight',
         });
     })
         .catch(err => {
             iziToast.error({
-                message: valueText,
+                message: `❌ Rejected promise in ${err} ms`,
                 progressBar: false,
                 position: 'topRight',
             });
